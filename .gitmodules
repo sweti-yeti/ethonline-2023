@@ -7,3 +7,6 @@
 [submodule "contracts/lib/sstore2"]
 	path = contracts/lib/sstore2
 	url = https://github.com/0xsequence/sstore2
+[submodule "contracts/lib/axelar-gmp-sdk-solidity"]
+	path = contracts/lib/axelar-gmp-sdk-solidity
+	url = https://github.com/axelarnetwork/axelar-gmp-sdk-solidity
