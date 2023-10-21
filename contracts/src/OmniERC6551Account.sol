@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 import {AxelarExecutable} from "axelar-gmp/executable/AxelarExecutable.sol";
 import {IAxelarGasService} from "axelar-gmp/interfaces/IAxelarGasService.sol";
 import {IAxelarGateway} from "axelar-gmp/interfaces/IAxelarGateway.sol";
+import {StringToAddress, AddressToString} from "axelar-gmp/libs/AddressString.sol";
 
 import "openzeppelin-contracts/utils/introspection/IERC165.sol";
 import "openzeppelin-contracts/token/ERC721/IERC721.sol";
@@ -19,6 +20,8 @@ contract OmniERC6551Account is
     IERC6551Account,
     AxelarExecutable
 {
+    using StringToAddress for string;
+    using AddressToString for address;
     event FalseSender(string sourceChain, string sourceAddress);
 
     uint256 public nonce;
