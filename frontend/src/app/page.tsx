@@ -33,6 +33,7 @@ export default function Home() {
         <hr />
         <h2>Account</h2>
         <Account />
+        <WriteContractPrepared />
         <Wavegear />
       </Connected>
     </main>

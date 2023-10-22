@@ -1,19 +1,19 @@
 import { getDefaultWallets } from '@rainbow-me/rainbowkit'
 import { configureChains, createConfig } from 'wagmi'
-import { goerli, mainnet } from 'wagmi/chains'
+import { scrollSepolia, mantleTestnet } from 'wagmi/chains'
 import { publicProvider } from 'wagmi/providers/public'
 
 const walletConnectProjectId = '62af047c822e5c8a5cd4b5aaed089477'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet, ...(process.env.NODE_ENV === 'development' ? [goerli] : [])],
+  [scrollSepolia, mantleTestnet],
   [
     publicProvider(),
   ],
 )
 
 const { connectors } = getDefaultWallets({
-  appName: 'My wagmi + RainbowKit App',
+  appName: 'Wavegear Demo',
   chains,
   projectId: walletConnectProjectId,
 })
