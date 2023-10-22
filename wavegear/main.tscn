@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://e3cruqymukju"]
+
+[ext_resource type="Texture2D" uid="uid://mci06mmxpec8" path="res://WavegearV1Ocean.png" id="1_aehoj"]
+[ext_resource type="Texture2D" uid="uid://dviyrxxx0kxd0" path="res://LuxlingLoungeBG.png" id="2_4pxh8"]
+[ext_resource type="PackedScene" uid="uid://dcdrdx4ivh1ua" path="res://luxling.tscn" id="3_2d2fl"]
+
+[node name="Node2D" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_aehoj")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(88, 88)
+texture = ExtResource("2_4pxh8")
+
+[node name="Node2D" parent="Node2D" instance=ExtResource("3_2d2fl")]
+position = Vector2(92, 117)
+
+[node name="Node2D2" parent="Node2D" instance=ExtResource("3_2d2fl")]
+position = Vector2(37, 112)
+element = "Aqua"
+
+[node name="Node2D3" parent="Node2D" instance=ExtResource("3_2d2fl")]
+position = Vector2(59, 123)
+element = "Ignis"
+
+[node name="Node2D4" parent="Node2D" instance=ExtResource("3_2d2fl")]
+position = Vector2(142, 111)
+element = "Ventus"
+
+[node name="Node2D5" parent="Node2D" instance=ExtResource("3_2d2fl")]
+position = Vector2(118, 123)
+element = "Petra"

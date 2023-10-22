@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcdrdx4ivh1ua"]
+
+[ext_resource type="Texture2D" uid="uid://bxjefyxujjngd" path="res://FulgurV1Sheet.png" id="1_0clwa"]
+[ext_resource type="Script" path="res://luxling.gd" id="1_hv0h3"]
+
+[sub_resource type="Animation" id="Animation_gkre8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n3vag"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8kcc"]
+_data = {
+"RESET": SubResource("Animation_gkre8"),
+"move": SubResource("Animation_n3vag")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hv0h3")
+element = "Fulgur"
+
+[node name="Luxling" type="Sprite2D" parent="."]
+texture = ExtResource("1_0clwa")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Luxling"]
+libraries = {
+"": SubResource("AnimationLibrary_r8kcc")
+}
+speed_scale = 2.0
