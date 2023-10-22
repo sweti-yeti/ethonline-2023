@@ -11,13 +11,13 @@ import "openzeppelin-contracts/token/ERC721/IERC721.sol";
 import "openzeppelin-contracts/interfaces/IERC1271.sol";
 import "openzeppelin-contracts/utils/cryptography/SignatureChecker.sol";
 
-import "./interfaces/IERC6551Account.sol";
+import "./interfaces/IOmniERC6551Account.sol";
 import "./lib/ERC6551AccountLib.sol";
 
 contract OmniERC6551Account is
     IERC165,
     IERC1271,
-    IERC6551Account,
+    IOmniERC6551Account,
     AxelarExecutable
 {
     using StringToAddress for string;
@@ -56,6 +56,8 @@ contract OmniERC6551Account is
         nonce++;
     }
 
+    // Forwards a call to the TBA on another chain
+    // Assumes the TBA exists on destinationChain
     function callRemote(
         string calldata destinationChain,
         address to,
